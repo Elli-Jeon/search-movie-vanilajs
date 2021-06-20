@@ -3,14 +3,14 @@ const fetchData = async (keyword) => {
     let url = new URL(`https://cors-anywhere.herokuapp.com/https://openapi.naver.com/v1/search/movie.json`);
     let params = {
         query : `${keyword}`,
-        display : 20,
+        display : 10,
         // genre : [1,2],
     }
     let requestOptions = {
         method : "GET",
         headers : {
             "X-Naver-Client-Id" : "bBIbdz0P823GUIwYl0pt",
-            "X-Naver-Client-Secret" : "xVoc8F1izU"
+            "X-Naver-Client-Secret" : "sEuJCvwfed"
         }
     };
     url.search = new URLSearchParams(params).toString();
@@ -22,7 +22,6 @@ const fetchData = async (keyword) => {
         throw new Error(error);
     } 
 }
-
 
 /* Add event */
 const searchBar = document.querySelector(".searchBar");

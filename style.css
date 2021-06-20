@@ -1,0 +1,69 @@
+:root {
+    --main-font : 'Mate SC', serif;
+    --main-color : #e53935;
+}
+
+* {
+    padding : 0;
+    margin : 0;
+    box-sizing: border-box;
+}
+
+/* Header */
+header {
+    padding : 1rem;    
+}
+
+/*Header - logo*/
+header .logo {
+    margin-bottom: 0.3rem;
+}
+
+header .logo a {
+    text-decoration: none;
+    color : black;
+}
+
+header .logo a h1 {
+    font-size : 3rem;
+    font-family: var(--main-font);
+}
+header .logo a h1 i {
+    color : var(--main-color);
+}
+
+/*Header - searchBox*/
+header .searchBox {
+    display: flex;
+    align-items: center;
+}
+
+header .searchBar {
+    width : 70vw;
+    height: 3rem;
+    border : 2px solid var(--main-color);
+    border-radius: 1rem;
+    outline: none;
+    padding : 10px;
+    font-size : 1rem;
+    margin-right: 0.4rem;
+}
+
+header .submitBtn {
+    min-width: 6rem;
+    min-height : 3rem;
+    font-size: 1.5rem;
+    border : 2px solid var(--main-color);
+    border-radius: 1rem;
+    padding : 0.3rem;
+    background: none;
+    transition: all 600ms;
+}
+
+header .submitBtn:hover {
+    clip-path: polygon(0% 20%, 60% 20%, 60% 0%, 100% 50%, 60% 100%, 60% 80%, 0% 80%);
+    background: var(--main-color);
+    color : white;
+    cursor: pointer;
+    transform :translateX(15px);
+}
