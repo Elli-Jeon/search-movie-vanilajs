@@ -1,0 +1,11 @@
+https://developers.naver.com/docs/serviceapi/search/movie/movie.md#%EC%98%81%ED%99%94
+clientID : bBIbdz0P823GUIwYl0pt
+clinetSecret : xVoc8F1izU
+
+CORS 문제
+https://xiubindev.tistory.com/115
+
+
+
+How to build API - 06.19
+https://www.youtube.com/watch?v=pKd0Rpw7O48
