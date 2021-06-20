@@ -3,7 +3,7 @@ const fetchData = async (keyword) => {
     let url = new URL(`https://cors-anywhere.herokuapp.com/https://openapi.naver.com/v1/search/movie.json`);
     let params = {
         query : `${keyword}`,
-        display : 10,
+        display : 30,
         // genre : [1,2],
     }
     let requestOptions = {
@@ -32,19 +32,22 @@ const showMovieDataOnScreen = (movieData) => {
     const movieDataSection = document.querySelector('.movieData');
     console.log(movieData);
 
-    movieData.forEach((data)=>{
+    movieData.forEach( (data)=>{
         const eachMovieSection = document.createElement('div'); // 각 movie가 들어갈 div
         // image section
         const imageSec = document.createElement('img');
         imageSec.src = data.image;
-        imageSec.alt = "image";
+        if(!data.image){
+            imageSec.src = "./noImage.png"
+        }
+        console.log(imageSec.alt)
         eachMovieSection.appendChild(imageSec);
         // info section
         const infoSec = document.createElement('div');
         const title = document.createElement('h3');
         const director = document.createElement('h4');
         const actor = document.createElement('h4');
-        const pubDate = document.createElement('h4');
+        const pubDate = document.createElement('h5');
         
         title.innerHTML = data.title; // innerHTML 쓰기는 싫은뎅..
         infoSec.appendChild(title);
@@ -54,10 +57,20 @@ const showMovieDataOnScreen = (movieData) => {
         infoSec.appendChild(actor);
         pubDate.innerHTML = data.pubDate;
         infoSec.appendChild(pubDate);
+        infoSec.classList.add('infoSec');
         eachMovieSection.appendChild(infoSec);
         // rating section
         const rating = document.createElement('div');
-        rating.innerText = Number(data.userRating);
+        let ratingNumber = Number(data.userRating);
+        for(let i = 0; i < 5; i ++){
+            rating.innerHTML += '<i color="yellow" class="fas fa-star"></i>';
+        }
+        rating.classList.add("rating");
+        const ratingCover = document.createElement('div');
+        const ratingPercent = (10-ratingNumber)/10*100;
+        ratingCover.style.width = ratingPercent+'%';
+        ratingCover.classList.add('ratingCover');
+        rating.appendChild(ratingCover);
         eachMovieSection.appendChild(rating);
         // more section
         const more = document.createElement('p');
@@ -65,6 +78,7 @@ const showMovieDataOnScreen = (movieData) => {
         more.textContent = "더보기"
         moreContainer.href = data.link;
         moreContainer.appendChild(more);
+        moreContainer.classList.add("moreContainer");
         eachMovieSection.appendChild(moreContainer);
 
         movieDataSection.appendChild(eachMovieSection);

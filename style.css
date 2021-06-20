@@ -39,7 +39,7 @@ header .searchBox {
 }
 
 header .searchBar {
-    width : 70vw;
+    width : 80vw;
     height: 3rem;
     border : 2px solid var(--main-color);
     border-radius: 1rem;
@@ -67,3 +67,82 @@ header .submitBtn:hover {
     cursor: pointer;
     transform :translateX(15px);
 }
+
+/* sectionMain */
+.sectionMain {
+    /* max-width : 90vh; */
+}
+/* sectionMain - sectionMainInfo*/
+.sectionMainInfo ul {
+    display: flex;
+    list-style: none;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 500;
+    position: relative;
+}
+
+.sectionMainInfo ul li::after{
+    content: "";
+    position: absolute;
+    top : 0;
+    height : 1rem;
+    border : 1px solid red;
+    transform: translate(1rem, 0.3rem);
+}
+
+.sectionMainInfo ul li:first-child{
+    flex : 1;
+}
+
+.sectionMainInfo ul li:nth-child(2){
+    flex : 2;
+}
+
+.sectionMainInfo ul li:nth-child(3){
+    flex : 1;
+}
+
+
+/* sectionMain - movieData*/
+.movieData div {
+    display: flex;
+    margin: 1rem;
+}
+
+.movieData div img {
+    max-width: 15%;
+    flex : 1;
+}
+.movieData div .infoSec{
+    display: flex;
+    flex-direction: column;
+    flex : 3;
+    margin : 0 1rem ;
+}
+
+.movieData div .rating {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color : yellow;
+    position: relative;
+    flex : 1;
+}
+
+.movieData div .ratingCover {
+    position : absolute;
+    height : 1rem;
+    background: white;
+    right : 0;
+    margin : 0;
+}
+
+.movieData div .moreContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color : black;
+}
+
